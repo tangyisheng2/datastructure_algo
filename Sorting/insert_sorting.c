@@ -33,29 +33,32 @@ void binary_insertion_sort(int data[])
         if (data[i] < data[i - 1])
         {
             int tmp = data[i];
-            int max = i - 1, min = 0, mid = (min + max) / 2;
             //折半查找
-            for (max = i - 1,min = 0; max > min;)
+            int min = 0, max = i, mid = (min + max) / 2;
+            while (min <= max)
             {
-                if (tmp < mid)
+                if (tmp < data[mid])
                 {
                     max = mid - 1;
+                    mid = (min + max) / 2;
                 }
-                else
+                else if (tmp > data[mid])
                 {
                     min = mid + 1;
+                    mid = (min + max) / 2;
                 }
-                mid=(min+max)/2;
             }
             //移位
-            for (j = i - 1; j >= mid; j--)
+            int position = mid;
+            for (j = i; j > mid; j--)
             {
-                data[j + 1] = data[j];
+                data[j ] = data[j-1];
             }
             //把值插入
-            data[j+1] = tmp;
+            data[j] = tmp;
         }
     }
+    system("pause");
 }
 
 int main()
