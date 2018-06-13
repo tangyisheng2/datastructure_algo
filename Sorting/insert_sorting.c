@@ -47,6 +47,10 @@ void binary_insertion_sort(int data[])
                     min = mid + 1;
                     mid = (min + max) / 2;
                 }
+                else{
+                    mid++;
+                    break;
+                }
             }
             //移位
             int position = mid;
