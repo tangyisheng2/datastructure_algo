@@ -34,8 +34,10 @@ void binary_insertion_sort(int data[])
         {
             int tmp = data[i];
             //折半查找
-            int min = 0, max = i, mid = (min + max) / 2;
-            while (min <= max)
+            //int min = 0, max = i, mid = (min + max) / 2;
+            //while (min <= max)
+            int min = 0, max = i - 1, mid = (min + max) / 2;
+            while (min < max)
             {
                 if (tmp < data[mid])
                 {
@@ -47,7 +49,8 @@ void binary_insertion_sort(int data[])
                     min = mid + 1;
                     mid = (min + max) / 2;
                 }
-                else{
+                else
+                {
                     mid++;
                     break;
                 }
@@ -56,7 +59,7 @@ void binary_insertion_sort(int data[])
             int position = mid;
             for (j = i; j > mid; j--)
             {
-                data[j ] = data[j-1];
+                data[j] = data[j - 1];
             }
             //把值插入
             data[j] = tmp;

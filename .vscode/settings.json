@@ -1,2 +1,4 @@
 {
+    // 控制编辑器是否应在键入后自动设置行的格式
+    "editor.formatOnType": true,
 }
